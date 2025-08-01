@@ -1,0 +1,136 @@
+:root {
+  --main-bg-color: #00809D;
+  --alt-bg-color: #FCF8DD;
+  --text-color: #504215;
+  --accent-color-1: #FFD700;
+  --accent-color-2: #D3AF37;
+  --shadow-color: #00596D;
+  --transition: all 0.25s ease;
+
+}
+
+body {
+  background-color: var(--main-bg-color);
+  color: var(--text-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.container {
+  background-color: var(--alt-bg-color);
+  border: 6px solid var(--accent-color-1);
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px 4px var(--shadow-color);
+  margin: 10rem auto 0;
+  max-width: 768px;
+  outline: 4px solid var(--accent-color-2);
+  padding: 4rem;
+
+  h1 {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+    transition: var(--transition);
+    width: 100%;
+
+    .form-group {
+      column-gap: 1rem;
+      display: flex;
+    }
+
+    .form-element {
+      border: 2px solid var(--text-color);
+      border-radius: 10px;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 0.25rem 1rem;
+
+      input {
+        background-color: transparent;
+        border: none;
+        font-size: 1rem;
+        padding-top: 0.5rem;
+        transition: inherit;
+        transition: font-size 0s;
+
+        &:focus {
+          outline: none;
+          color: inherit;
+
+          &::placeholder {
+            color: inherit;
+            opacity: 0.8;
+          }
+        }
+      }
+
+      &:has(input:focus) {
+        background-color: var(--text-color);
+        color: var(--alt-bg-color);
+        outline: 2px solid var(--accent-color-1);
+
+        label {
+          font-size: 0.75rem;
+        }
+
+        input {
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    div:has(>img) {
+      border: 2px solid var(--text-color);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    button {
+      background-color: var(--accent-color-1);
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 2rem;
+      padding: 1rem 0.5rem;
+      transition: inherit;
+
+      &:hover {
+        background-color: var(--main-bg-color);
+        color: var(--alt-bg-color)
+      }
+    }
+  }
+
+  &.appear {
+    opacity: 0;
+    transform: scale(0);
+    animation: appear 0.5s ease-in forwards;
+  }
+}
+
+    @keyframes appear {
+     0% {
+      opacity: 0;
+      transform: scale(0);
+     } 
+
+     65% {
+      opacity: 1;
+      transform: scale(1.2);
+     }
+
+     85% {
+      opacity: 1;
+      transform: scale(0.8);
+     }
+
+     100% {
+      opacity: 1;
+      transform: scale(1);
+     }
+    }
