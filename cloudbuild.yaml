@@ -1,6 +1,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-f', 'docker/php/Dockerfile', '-t', 'gcr.io/$PROJECT_ID/my-app', '.']
+    args: ['build', '-f', 'docker/php/Dockerfile', '-t', 'gcr.io/$PROJECT_ID/captcha_form', '.']
 
 images:
-  - 'gcr.io/$PROJECT_ID/my-app'
+  - 'gcr.io/$PROJECT_ID/captcha_form'
