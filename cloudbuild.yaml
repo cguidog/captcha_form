@@ -1,6 +1,9 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-f', 'docker/php/Dockerfile', '-t', 'gcr.io/$PROJECT_ID/captcha-form', '.']
-
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        docker build -f docker/php/Dockerfile -t gcr.io/$PROJECT_ID/captcha-form .
 images:
   - 'gcr.io/$PROJECT_ID/captcha-form'
