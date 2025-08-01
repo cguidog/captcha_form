@@ -1,6 +1,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/captcha-form', '.']
+    args: ['build', '-f', 'Dockerfile.cloudrun', '-t', 'gcr.io/$PROJECT_ID/captcha-form', '.']
 
 images:
   - 'gcr.io/$PROJECT_ID/captcha-form'
