@@ -7,6 +7,6 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-install session
 
-COPY ./000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY ./docker/php/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN a2enmod rewrite
